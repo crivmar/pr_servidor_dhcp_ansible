@@ -3,7 +3,7 @@
       update_cache: yes
       upgrade: "yes"
 
-  - name: "Instalar servidor dhcp y iptables"
+  - name: "Instalar servidor dhcp e iptables"
     apt:
       name:
         - isc-dhcp-server
