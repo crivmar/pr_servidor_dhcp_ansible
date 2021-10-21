@@ -1,2 +1,7 @@
 - name: reiniciar
   reboot:
+
+- name: renicio_dhcp
+  service:
+    name: isc-server-dhcp
+    state: restarted
