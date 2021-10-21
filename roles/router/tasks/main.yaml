@@ -1,6 +1,11 @@
   - name: "Actualizar los repositorios"
-      apt:
-        update_cache: yes
-        upgrade: "yes"
+    apt:
+      update_cache: yes
+      upgrade: "yes"
 
-        
+  - name: "Instalar servidor dhcp y iptables"
+    apt:
+      name:
+        - isc-dhcp-server
+        - iptables
+
