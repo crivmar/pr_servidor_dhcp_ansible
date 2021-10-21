@@ -1,4 +1,4 @@
 - hosts: servidor
   become: true
   roles:
-  	- role: router
+    - role: router
