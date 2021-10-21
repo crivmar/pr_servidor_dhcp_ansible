@@ -10,3 +10,21 @@ iface lo inet loopback
 # The primary network interface
 allow-hotplug ens3
 iface ens3 inet dhcp
+
+# Muy_aislada_1
+
+allow_hotplug ens8
+auto ens8
+iface ens8 inet static
+        address {{ip_muy_aislada_1}}
+        netmask {{mascara_red}}
+        post-up iptables -t nat -A POSTROUTING -s {{red_privada_1}} -o {{interfaz_salida}} -j MASQUERADE
+
+# Muy_aislada_2
+
+allow_hotplug ens9
+auto ens9
+iface ens9 inet static
+        address {{ip_muy_aislada_2}}
+        netmask {{mascara_red}}
+        post-up iptables -t nat -A POSTROUTING -s {{red_privada_2}} -o {{interfaz_salida}} -j MASQUERADE
