@@ -22,3 +22,10 @@
       dest: /etc/network/interfaces
       mode: 0644
     notify: reiniciar
+
+  - name: "Modificar archivo isc-dhcp-server"
+    template:
+      src: isc-dhcp
+      dest: /etc/default/isc-dhcp-server
+      mode: 0644
+    notify: reinicio_dhcp
