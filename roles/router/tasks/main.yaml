@@ -9,16 +9,16 @@
         - isc-dhcp-server
         - iptables
 
-- name: "Activar el bit de forwarding"
-  sysctl:
-    name: net.ipv4.ip_forward
-    value: "1"
-    state: present
-    reload: yes
+  - name: "Activar el bit de forwarding"
+    sysctl:
+      name: net.ipv4.ip_forward
+      value: "1"
+      state: present
+      reload: yes
 
-- name: "Modificar las interfaces desde plantilla"
-  template:
-    src: interfaces
-    dest: /etc/network/interfaces
-    mode: 0644
-  notify: reiniciar
+  - name: "Modificar las interfaces desde plantilla"
+    template:
+      src: interfaces
+      dest: /etc/network/interfaces
+      mode: 0644
+    notify: reiniciar
