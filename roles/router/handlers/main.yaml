@@ -3,5 +3,5 @@
 
 - name: reinicio_dhcp
   service:
-    name: isc-server-dhcp
+    name: isc-dhcp-server
     state: restarted
