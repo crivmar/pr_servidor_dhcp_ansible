@@ -18,7 +18,7 @@ auto ens8
 iface ens8 inet static
         address {{ip_muy_aislada_1}}
         netmask {{mascara_red}}
-        post-up iptables -t nat -A POSTROUTING -s {{red_privada_1}} -o {{interfaz_salida}} -j MASQUERADE
+        post-up iptables -t nat -A POSTROUTING -s {{red_privada_1}}/24 -o {{interfaz_salida}} -j MASQUERADE
 
 # Muy_aislada_2
 
@@ -27,4 +27,4 @@ auto ens9
 iface ens9 inet static
         address {{ip_muy_aislada_2}}
         netmask {{mascara_red}}
-        post-up iptables -t nat -A POSTROUTING -s {{red_privada_2}} -o {{interfaz_salida}} -j MASQUERADE
+        post-up iptables -t nat -A POSTROUTING -s {{red_privada_2}}/24 -o {{interfaz_salida}} -j MASQUERADE
