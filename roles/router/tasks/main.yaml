@@ -1,12 +1,7 @@
-  - name: "Actualizar los repositorios"
-    apt:
-      update_cache: yes
-      upgrade: "yes"
-
-  - name: "Instalar servidor dhcp e iptables"
+  
+  - name: "Instalar iptables"
     apt:
       name:
-        - isc-dhcp-server
         - iptables
 
   - name: "Activar el bit de forwarding"
@@ -22,27 +17,3 @@
       dest: /etc/network/interfaces
       mode: 0644
     notify: reiniciar
-
-  # - name: "Modificar archivo isc-dhcp-server"
-  #   template:
-  #     src: isc-dhcp
-  #     dest: /etc/default/isc-dhcp-server
-  #     mode: 0644
-  #   notify: reinicio_dhcp
-
-  # - name: "Modificar archivo dhcpd.conf"
-  #   template:
-  #     src: dhcpd.conf
-  #     dest: /etc/dhcp/dhcpd.conf
-  #     mode: 0644
-  #   notify: reinicio_dhcp
-
-  - name: "Modificar los archivos de configuración del servidor"
-    template:
-      src: "{{ item.src }}"
-      dest: "{{ item.dest }}"
-      mode: 0644
-    with_items:
-      - { src: isc-dhcp, dest: /etc/default/isc-dhcp-server }
-      - { src: dhcpd.conf, dest: /etc/dhcp/dhcpd.conf }
-    notify: reinicio_dhcp
